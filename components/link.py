@@ -1,6 +1,10 @@
 import reflex as rx
 from components.title import title
 from components.link_button import link_button
+
+import no_signal_v1.styles.styles as styles
+
+
 def link() -> rx.Component:
     return rx.vstack(
         link_button(
@@ -43,7 +47,7 @@ def link() -> rx.Component:
             color="#d8522b",
             color_text="#e1a6a4",
         ),
+        max_width=styles.MAX_WIDTH,
         align="center",
         spacing="4",
-        width="100%"
     )

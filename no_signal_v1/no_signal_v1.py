@@ -4,26 +4,24 @@ from components.header import header
 from components.link import link
 from rxconfig import config
 
-
-class State(rx.State):
-    """The app state."""
-
-    ...
-
+import no_signal_v1.styles.styles as styles
+from no_signal_v1.styles.styles import Size
 
 def index() -> rx.Component:
     return rx.box(
         navbar(),
-        rx.center(
-            rx.vstack(
-                header(),
-                link(),
-                align_items="center",
-                max_width="620px"
-            ),
+        rx.vstack(
+            header(),
+            link(),
+            align="center",
+            width="100%",
         ),
     )
 
 
-app = rx.App()
+app = rx.App(
+    stylesheets=styles.STYLESHEETS,
+    style=styles.BASE_STYLE,
+    html_lang='es'
+)
 app.add_page(index)
